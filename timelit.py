@@ -7,6 +7,9 @@ def timmer(usertime, title , desc):
     if(len(title)==0):
         title ="The Timmer has stop"
         desc ="Timer reached it's end"
+        subprocess.run(["notify-send", "Timer has Started..." , "Running in the background do not close Terminal"])
+    else:
+        subprocess.run(["notify-send", f"{title} has Started..." , "Running in the background do not close Terminal"])
     pbar = tqdm(total=usertime, desc="Timer", unit="s", colour='green',bar_format='{desc}: {percentage:3.0f}%|{bar}| remaining:{remaining}')
     for i in range(usertime):
         time.sleep(1)
@@ -37,9 +40,9 @@ if(arge.t):
         sec= int(str[2])
         total = hour + min + sec
         timmer(total,arge.t[1], arge.t[2])
-    subprocess.run(["notify-send", f"{arge.t[1]}has Started..."])
     
 
 elif(arge.alarm):
     alarm()
+
 
