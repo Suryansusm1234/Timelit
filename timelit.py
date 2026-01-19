@@ -37,6 +37,7 @@ if(arge.t):
         sec= int(str[2])
         total = hour + min + sec
         timmer(total,arge.t[1], arge.t[2])
+    subprocess.run(["notify-send", f"{arge.t[1]}has Started..."])
     
 
 elif(arge.alarm):
